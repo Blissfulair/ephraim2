@@ -1,0 +1,172 @@
+.life-section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.years-section {
+  height: auto;
+  background-color: var(--primary-color);
+  margin: 20px 0;
+  padding: 40px;
+  width: 100%;
+  display: flex;
+  /* background-image: url(../assets/img/history.png); */
+}
+
+.years-section img {
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  .years-section {
+    padding: 20px;
+  }
+}
+
+.bio-list-section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bio-listing-section {
+  width: 100%;
+  display: flex;
+  margin: 0 0 20px 0;
+  flex-wrap: wrap;
+}
+
+.bio-title {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.time-title {
+  color: var(--tertiary-color);
+  font-size: 3.0em;
+  margin: 0;
+}
+
+.bio-image-joint {
+  margin: 10px;
+}
+
+.bio-image__blue-square {
+  border: 7px solid var(--secondary-color);
+  width: 55%;
+  height: 70%;
+  left: 0;
+  /* right: 0; */
+  /* margin: 100px 0px 0px 50px; */
+  position: absolute;
+  z-index: 2;
+
+}
+
+.bio-image-holder {
+  width: 90%;
+  /* left: 0;  */
+  right: 0;
+  margin: 30px 0px 0px 30px;
+  background-image: url('../assets/img/placeholder.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90%;
+  position: absolute;
+  z-index: 2;
+}
+
+.bio-me-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  /* margin: 20px 0; */
+  padding: 40px 120px 10px 50px;
+  color: var(--tertiary-color);
+  /* background: var(--primary-color); */
+}
+
+@media (max-width: 700px) {
+  .bio-me-content {
+    width: 100%;
+    padding: 20px 20px 0 20px;
+  }
+}
+
+.bio-me-image {
+  position: relative;
+  width: 50%;
+  height: 40vh;
+  display: flex;
+  margin: auto;
+}
+
+@media (max-width: 700px) {
+  .bio-me-image {
+    min-width: 300px;
+    height: 300px;
+    display: flex;
+  }
+}
+
+
+
+.about-me-section {
+  width: 100%;
+  display: flex;
+  margin: 0 0 40px 0;
+  flex-wrap: wrap;
+}
+
+.about-me-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 55%;
+  /* margin: 20px 0; */
+  padding: 40px 120px 10px 50px;
+  color: var(--tertiary-color);
+  background: var(--primary-color);
+}
+
+.about-me-image .hon-image {
+  background-image: url(../assets/img/HonEph.png);
+  max-height: 90vh;
+  min-width: 30vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  align-self: auto;
+  flex-grow: 1;
+}
+
+@media (max-width: 1024px) {
+  .about-me-content {
+    width: 100%;
+    padding: 20px 20px 0 20px;
+  }
+}
+
+.about-me-image {
+  position: relative;
+  width: 45%;
+  height: 60vh;
+  display: flex;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .about-me-image {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+  }
+}
+
+
+
+
+
+/* background-image: url(../assets/img/HonEph.png); */
