@@ -1,61 +1,61 @@
-import React, { useEffect } from "react"
-import { Link } from "gatsby"
+import React, { useEffect } from 'react';
+import { Link } from 'gatsby';
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import "./index.css"
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import './index.css';
 
-const img1 = require("../assets/img/img1.png")
-const img2 = require("../assets/img/img2.png")
-const img3 = require("../assets/img/img3.png")
+const img1 = require('../assets/img/img1.png');
+const img2 = require('../assets/img/img2.png');
+const img3 = require('../assets/img/img3.png');
 
-let slideIndex = 1
+let slideIndex = 1;
 
 const minusSlides = () => {
-  showSlides((slideIndex += -1))
-}
+  showSlides((slideIndex += -1));
+};
 
 const plusSlides = () => {
-  showSlides((slideIndex += 1))
-}
+  showSlides((slideIndex += 1));
+};
 
 const showSlides = n => {
-  let i
-  let slides = document.getElementsByClassName("mySlides")
+  let i;
+  let slides = document.getElementsByClassName('mySlides');
   if (slides) {
     for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none"
+      slides[i].style.display = 'none';
     }
     if (n > slides.length) {
-      slideIndex = 1
-      return (slides[slideIndex - 1].style.display = "block")
+      slideIndex = 1;
+      return (slides[slideIndex - 1].style.display = 'block');
     }
     if (n < 1) {
-      slideIndex = slides.length
-      return (slides[slideIndex - 1].style.display = "block")
+      slideIndex = slides.length;
+      return (slides[slideIndex - 1].style.display = 'block');
     }
-    slides[slideIndex - 1].style.display = "block"
+    slides[slideIndex - 1].style.display = 'block';
   }
-}
+};
 
 const autoShowSlides = () => {
-  let i
-  let slides = document.getElementsByClassName("mySlides")
+  let i;
+  let slides = document.getElementsByClassName('mySlides');
   if (slides.length) {
     for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none"
+      slides[i].style.display = 'none';
     }
 
     if (slideIndex > slides.length) {
-      slideIndex = 1
+      slideIndex = 1;
     }
-    slides[slideIndex - 1].style.display = "block"
-    setTimeout(autoShowSlides, 5000) // Change image every 5 seconds
-    slideIndex++
+    slides[slideIndex - 1].style.display = 'block';
+    setTimeout(autoShowSlides, 5000); // Change image every 5 seconds
+    slideIndex++;
   }
-}
+};
 
-let showVideo = false // Change showViedo to true and src of videoPlayerContent iframe to hon. ephraim's portfolio youtube video
+let showVideo = false; // Change showViedo to true and src of videoPlayerContent iframe to hon. ephraim's portfolio youtube video
 const videoPlayerContent = showVideo
   ? `<iframe
       class="fw-video"
@@ -67,26 +67,26 @@ const videoPlayerContent = showVideo
       mozallowfullscreen=""
       allowfullscreen=""
     ></iframe>`
-  : `<p>Sorry Video Is Not Available At The Moment</p>`
+  : `<p>Sorry Video Is Not Available At The Moment</p>`;
 
 const openVideoModal = () => {
-  let videoPlayer = document.querySelector(".video-player")
-  let darkModal = document.querySelector(".dark-modal")
-  let closeVideo = document.querySelector(".close-video")
-  videoPlayer.innerHTML = videoPlayerContent
-  darkModal.classList.add("open-modal")
-  closeVideo.classList.add("display-close-video")
-}
+  let videoPlayer = document.querySelector('.video-player');
+  let darkModal = document.querySelector('.dark-modal');
+  let closeVideo = document.querySelector('.close-video');
+  videoPlayer.innerHTML = videoPlayerContent;
+  darkModal.classList.add('open-modal');
+  closeVideo.classList.add('display-close-video');
+};
 
 const closeVideoModal = () => {
-  let videoPlayer = document.querySelector(".video-player")
-  let darkModal = document.querySelector(".dark-modal")
-  let closeVideo = document.querySelector(".close-video")
-  showVideo = false
-  videoPlayer.innerHTML = ""
-  darkModal.classList.remove("open-modal")
-  closeVideo.classList.remove("display-close-video")
-}
+  let videoPlayer = document.querySelector('.video-player');
+  let darkModal = document.querySelector('.dark-modal');
+  let closeVideo = document.querySelector('.close-video');
+  showVideo = false;
+  videoPlayer.innerHTML = '';
+  darkModal.classList.remove('open-modal');
+  closeVideo.classList.remove('display-close-video');
+};
 
 export const pageQuery = graphql`
   query {
@@ -99,6 +99,28 @@ export const pageQuery = graphql`
           acf {
             location
             date
+          }
+        }
+      }
+    }
+
+    allWordpressWpPortfolio {
+      edges {
+        node {
+          id
+          slug
+          title
+          content
+          featured_media {
+            localFile {
+              childImageSharp {
+                resolutions(width: 700, height: 400) {
+                  src
+                  width
+                  height
+                }
+              }
+            }
           }
         }
       }
@@ -118,36 +140,36 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
 
 const IndexPage = ({ data }) => {
   useEffect(() => {
-    const timer = autoShowSlides()
-    return () => clearTimeout(timer)
-  }, [])
+    const timer = autoShowSlides();
+    return () => clearTimeout(timer);
+  }, []);
 
   const events = data.allWordpressWpEvent.edges
     .filter((node, index) => {
-      return index <= 3
+      return index <= 3;
     })
     .map(e => {
-      const { id, title, acf } = e.node
-      const { location, date } = acf
-      let day = date.split("/")[0]
-      const month = date.split("/")[1].slice(0, 3)
-      const year = date.split("/")[2]
+      const { id, title, acf } = e.node;
+      const { location, date } = acf;
+      let day = date.split('/')[0];
+      const month = date.split('/')[1].slice(0, 3);
+      const year = date.split('/')[2];
       if (day[day.length - 1] === 2) {
-        day = day + "nd"
+        day = day + 'nd';
       } else if (day[day.length - 1] === 3) {
-        day = day + "rd"
+        day = day + 'rd';
       } else {
-        day = day + "th"
+        day = day + 'th';
       }
       return (
         <div className="event-content__box" key={id}>
           <div className="event-content__date">
             <h4 className="event-content__title">
-              <span className="bold-date">{day}</span> <br /> {month} <br />{" "}
+              <span className="bold-date">{day}</span> <br /> {month} <br />{' '}
               {year}
             </h4>
           </div>
@@ -158,16 +180,16 @@ const IndexPage = ({ data }) => {
             </p>
           </div>
         </div>
-      )
-    })
+      );
+    });
 
   const posts = data.allWordpressPost.edges
     .filter((node, index) => {
-      return index <= 2
+      return index <= 2;
     })
     .map(e => {
-      const { id, title, slug, excerpt, author } = e.node
-      const { name } = author
+      const { id, title, slug, excerpt, author } = e.node;
+      const { name } = author;
       return (
         <div className="blog-content__box" key={id}>
           <h4
@@ -180,8 +202,35 @@ const IndexPage = ({ data }) => {
             Read More
           </Link>
         </div>
-      )
-    })
+      );
+    });
+
+  const portfolioLenght = data.allWordpressWpPortfolio.edges.length;
+
+  const portfolios = data.allWordpressWpPortfolio.edges.map((e, index) => {
+    const { id, title, content, featured_media } = e.node;
+    const { resolutions } = featured_media.localFile.childImageSharp;
+    return (
+      <div className="mySlides fade" key={id}>
+        <div className="mySlides-box">
+          <div className="numbertext">
+            {index + 1} / {portfolioLenght}
+          </div>
+          <img src={resolutions.src} alt="" />
+          <div className="mySlides__content">
+            <h4 dangerouslySetInnerHTML={{ __html: title }} />
+            <p dangerouslySetInnerHTML={{ __html: content }} />
+            {/* <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore etdolore magna aliqua. Ut enim
+              ad minim veniam, quisnostrud exercitation
+            </p> */}
+          </div>
+        </div>
+      </div>
+    );
+  });
+  console.log('protfolio: ', portfolios);
 
   return (
     <Layout>
@@ -304,51 +353,7 @@ const IndexPage = ({ data }) => {
           <h3 className="portfolio-title">Portfolio</h3>
 
           {/* Full-width images with number and caption text */}
-          <div className="mySlides fade">
-            <div className="mySlides-box">
-              <div className="numbertext">1 / 3</div>
-              <img src={img1} />
-              <div className="mySlides__content">
-                <h4>Children Foundation</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore etdolore magna aliqua.
-                  Ut enim ad minim veniam, quisnostrud exercitation
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mySlides fade">
-            <div className="mySlides-box">
-              <div className="numbertext">2 / 3</div>
-              <img src={img2} />
-              <div className="mySlides__content">
-                <h4>Children Foundation</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore etdolore magna aliqua.
-                  Ut enim ad minim veniam, quisnostrud exercitation
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mySlides fade">
-            <div className="mySlides-box">
-              <div className="numbertext">3 / 3</div>
-              <img src={img3} />
-              <div className="mySlides__content">
-                <h4>Children Foundation</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore etdolore magna aliqua.
-                  Ut enim ad minim veniam, quisnostrud exercitation
-                </p>
-              </div>
-            </div>
-          </div>
-
+          {portfolios}
           {/* Next and previous buttons */}
           <a className="prev" onClick={minusSlides}>
             &#10094;
@@ -426,7 +431,7 @@ const IndexPage = ({ data }) => {
               Hon. Ephraim
             </h3>
             <div className="contact-content__details">
-              <i className="zmdi zmdi-email contact__zmdi"></i>{" "}
+              <i className="zmdi zmdi-email contact__zmdi"></i>{' '}
               info@ephraimseleedha.com
             </div>
             <div className="contact-content__details">
@@ -442,7 +447,7 @@ const IndexPage = ({ data }) => {
         </div>
       </section>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;

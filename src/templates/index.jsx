@@ -1,98 +1,98 @@
-import React, { Component } from "react"
-import { Link } from "gatsby"
+import React, { Component } from 'react';
+import { Link } from 'gatsby';
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
-const img1 = require("../assets/img/img1.png")
-const img2 = require("../assets/img/img2.png")
-const img3 = require("../assets/img/img3.png")
+const img1 = require('../assets/img/img1.png');
+const img2 = require('../assets/img/img2.png');
+const img3 = require('../assets/img/img3.png');
 
 class IndexPage extends Component {
   state = {
     slideIndex: 1,
-    timer: null,
-  }
+    timer: null
+  };
 
   componentDidMount() {
-    this.showSlides(this.state.slideIndex)
+    this.showSlides(this.state.slideIndex);
     // this.autoShowSlides()
-    this.state.timer = setTimeout(() => this.autoShowSlides, 1000)
+    this.state.timer = setTimeout(() => this.autoShowSlides, 1000);
   }
   componentWillUnmount() {
-    clearTimeout(this.state.timer)
+    clearTimeout(this.state.timer);
   }
 
   // Next/previous controls
   minusSlides = () => {
-    this.showSlides((this.state.slideIndex += -1))
-  }
+    this.showSlides((this.state.slideIndex += -1));
+  };
 
   plusSlides = () => {
-    this.showSlides((this.state.slideIndex += 1))
-  }
+    this.showSlides((this.state.slideIndex += 1));
+  };
 
   showSlides = n => {
-    let i
-    let slides = document.getElementsByClassName("mySlides")
+    let i;
+    let slides = document.getElementsByClassName('mySlides');
     if (slides) {
       for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"
+        slides[i].style.display = 'none';
       }
       if (n > slides.length) {
-        this.setState({ slideIndex: 1 })
-        return (slides[0].style.display = "block")
+        this.setState({ slideIndex: 1 });
+        return (slides[0].style.display = 'block');
       }
       if (n < 1) {
-        this.setState({ slideIndex: slides.length })
-        return (slides[slides.length - 1].style.display = "block")
+        this.setState({ slideIndex: slides.length });
+        return (slides[slides.length - 1].style.display = 'block');
       }
-      slides[this.state.slideIndex - 1].style.display = "block"
+      slides[this.state.slideIndex - 1].style.display = 'block';
     }
-  }
+  };
 
   autoShowSlides = () => {
-    let i
-    let slides = document.getElementsByClassName("mySlides")
+    let i;
+    let slides = document.getElementsByClassName('mySlides');
     if (slides) {
       for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"
+        slides[i].style.display = 'none';
       }
 
       if (this.state.slideIndex > slides.length) {
-        this.setState({ slideIndex: 1 })
+        this.setState({ slideIndex: 1 });
       }
-      slides[this.state.slideIndex - 1].style.display = "block"
+      slides[this.state.slideIndex - 1].style.display = 'block';
       // setTimeout(this.autoShowSlides, 5000) // Change image every 2 seconds
       this.setState({
-        slideIndex: this.state.slideIndex + 1,
-      })
+        slideIndex: this.state.slideIndex + 1
+      });
     }
-  }
+  };
 
   render() {
     const events = this.props.data.allWordpressWpEvent.edges
       .filter((node, index) => {
-        return index === 0 && index <= 4
+        return index === 0 && index <= 4;
       })
       .map(e => {
-        const { id, title, acf } = e.node
-        const { location, date } = acf
-        let day = date.split("/")[0]
-        const month = date.split("/")[1].slice(0, 3)
-        const year = date.split("/")[2]
+        const { id, title, acf } = e.node;
+        const { location, date } = acf;
+        let day = date.split('/')[0];
+        const month = date.split('/')[1].slice(0, 3);
+        const year = date.split('/')[2];
         if (day[day.length - 1] === 2) {
-          day = day + "nd"
+          day = day + 'nd';
         } else if (day[day.length - 1] === 3) {
-          day = day + "rd"
+          day = day + 'rd';
         } else {
-          day = day + "th"
+          day = day + 'th';
         }
         return (
           <div className="event-content__box" key={id}>
             <div className="event-content__date">
               <h4 className="event-content__title">
-                <span className="bold-date">{day}</span> <br /> {month} <br />{" "}
+                <span className="bold-date">{day}</span> <br /> {month} <br />{' '}
                 {year}
               </h4>
             </div>
@@ -103,8 +103,8 @@ class IndexPage extends Component {
               </p>
             </div>
           </div>
-        )
-      })
+        );
+      });
 
     return (
       <Layout>
@@ -355,7 +355,7 @@ class IndexPage extends Component {
                 Hon. Ephraim
               </h3>
               <div className="contact-content__details">
-                <i className="zmdi zmdi-email contact__zmdi"></i>{" "}
+                <i className="zmdi zmdi-email contact__zmdi"></i>{' '}
                 email@gmail.com
               </div>
               <div className="contact-content__details">
@@ -370,11 +370,11 @@ class IndexPage extends Component {
           </div>
         </section>
       </Layout>
-    )
+    );
   }
 }
 
-export default IndexPage
+export default IndexPage;
 
 export const pageQuery = graphql`
   query {
@@ -392,4 +392,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

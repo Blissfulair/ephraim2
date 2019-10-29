@@ -1669,6 +1669,8 @@ template {
 }
 
 .mySlides__content {
+  width: 100%;
+  position: inherit;
   padding: 20px 10px;
   display: flex;
   flex-direction: column;
@@ -1678,6 +1680,11 @@ template {
 
 .mySlides__content h4 {
   font-size: 2rem;
+}
+
+.mySlides__content p {
+  padding: 20px 0;
+  font-size: 1.3rem;
 }
 
 /* Next & previous buttons */
