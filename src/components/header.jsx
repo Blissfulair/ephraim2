@@ -1,29 +1,29 @@
-import { Link } from "gatsby"
-import React from "react"
+import { Link } from 'gatsby';
+import React from 'react';
 // const logo = require("../assets/img/logo.png")
 
 class Header extends React.Component {
   openMobileNav = () => {
-    let mainHeader = document.querySelector(".main-header")
-    let mobileNav = document.querySelector(".mobile-nav")
-    let menu = document.querySelector(".menu")
-    let close = document.querySelector(".close")
-    if (mobileNav) mobileNav.classList.add("show")
-    if (mainHeader) mainHeader.classList.add("open")
-    if (menu) menu.classList.add("hide")
-    if (close) close.classList.add("display")
-  }
+    let mainHeader = document.querySelector('.main-header');
+    let mobileNav = document.querySelector('.mobile-nav');
+    let menu = document.querySelector('.menu');
+    let close = document.querySelector('.close');
+    if (mobileNav) mobileNav.classList.add('show');
+    if (mainHeader) mainHeader.classList.add('open');
+    if (menu) menu.classList.add('hide');
+    if (close) close.classList.add('display');
+  };
 
   closeMobileNav = () => {
-    let mainHeader = document.querySelector(".main-header")
-    let mobileNav = document.querySelector(".mobile-nav")
-    let menu = document.querySelector(".menu")
-    let close = document.querySelector(".close")
-    if (mobileNav) mobileNav.classList.remove("show")
-    if (mainHeader) mainHeader.classList.remove("open")
-    if (menu) menu.classList.remove("hide")
-    if (close) close.classList.remove("display")
-  }
+    let mainHeader = document.querySelector('.main-header');
+    let mobileNav = document.querySelector('.mobile-nav');
+    let menu = document.querySelector('.menu');
+    let close = document.querySelector('.close');
+    if (mobileNav) mobileNav.classList.remove('show');
+    if (mainHeader) mainHeader.classList.remove('open');
+    if (menu) menu.classList.remove('hide');
+    if (close) close.classList.remove('display');
+  };
 
   render() {
     return (
@@ -125,7 +125,7 @@ class Header extends React.Component {
             <li>
               <Link
                 onClick={this.closeMobileNav}
-                to="/portfolio"
+                to={`/#portfolio`}
                 className="underline-from-left"
                 activeClassName="active"
               >
@@ -155,7 +155,7 @@ class Header extends React.Component {
             <li>
               <Link
                 onClick={this.closeMobileNav}
-                to="/contact"
+                to={`/#contact`}
                 className="underline-from-left"
                 activeClassName="active"
               >
@@ -165,8 +165,8 @@ class Header extends React.Component {
           </ul>
         </nav>
       </header>
-    )
+    );
   }
 }
 
-export default Header
+export default Header;
