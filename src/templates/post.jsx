@@ -15,10 +15,9 @@ class PostTemplate extends Component {
       ? currentPost.featured_media.localFile.childImageSharp.resolutions
       : null
 
-    console.log(currentPost)
 
     return (
-      <Layout>
+      <Layout data={currentPost}>
         <SEO title={`${currentPost.title} - Blog Post`} />
 
         <section class="blog-single-section">

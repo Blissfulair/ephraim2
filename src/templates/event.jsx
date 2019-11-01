@@ -41,9 +41,9 @@ const EventPage = ({ pageContext }) => {
     )
   })
   return (
-    <Layout>
+    <Layout data={pageContext}>
       <SEO title="Events - The Hon. Ephraim Events Page" />
-      <section className="event-hon-section">
+      <section className="main-event-hon-section">
         <div className="container event-section">
           <h3 className="event-year">All Events</h3>
 

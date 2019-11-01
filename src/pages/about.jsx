@@ -8,7 +8,7 @@ import "./about.css"
 const history = require("../assets/img/history.png")
 
 const SecondPage = () => (
-  <Layout>
+  <Layout data='about'>
     <SEO title="About" />
     <section className="container life-section">
       <div className="years-section">

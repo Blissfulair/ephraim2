@@ -5,10 +5,6 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import './index.css';
 
-const img1 = require('../assets/img/img1.png');
-const img2 = require('../assets/img/img2.png');
-const img3 = require('../assets/img/img3.png');
-
 let slideIndex = 1;
 
 const minusSlides = () => {
@@ -220,11 +216,6 @@ const IndexPage = ({ data }) => {
           <div className="mySlides__content">
             <h4 dangerouslySetInnerHTML={{ __html: title }} />
             <p dangerouslySetInnerHTML={{ __html: content }} />
-            {/* <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore etdolore magna aliqua. Ut enim
-              ad minim veniam, quisnostrud exercitation
-            </p> */}
           </div>
         </div>
       </div>
@@ -233,7 +224,7 @@ const IndexPage = ({ data }) => {
   console.log('protfolio: ', portfolios);
 
   return (
-    <Layout>
+    <Layout data={data}>
       <SEO title="Home" />
       <div className="dark-modal">
         <i
@@ -274,8 +265,9 @@ const IndexPage = ({ data }) => {
               </div>
               <div className="bio-mission__content">
                 <p>
-                  Lorem ipsum dolor ectetur adipiscing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna.
+                To adequately represent and empower my constituency and 
+                support the state in development planning, conflict resolution, 
+                security, peacemaking and peacebuilding.
                 </p>
               </div>
             </div>
@@ -286,8 +278,7 @@ const IndexPage = ({ data }) => {
               </div>
               <div className="bio-vision__content">
                 <p>
-                  Lorem ipsum dolor ectetur adipiscing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna.
+                Taking Igueben Higher, Joining in Transforming Edo State and NIGERIA
                 </p>
               </div>
             </div>

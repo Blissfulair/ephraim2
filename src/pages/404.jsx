@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import "./404.css"
 
 const NotFoundPage = () => (
-  <Layout>
+  <Layout data='404'>
     <SEO title="404: Not found" />
     <section className="notfound">
       <div className="container notfound-section">

@@ -546,6 +546,8 @@ template {
   background: var(--primary-color);
   z-index: 102;
   padding: 10px;
+  position: fixed;
+  width: 100%;
 }
 
 .main-header-row {
@@ -794,6 +796,7 @@ template {
 
 .home-section {
   z-index: 100;
+  padding-top: 70px;
   padding-bottom: 50px;
   background: #000;
 }
@@ -1193,6 +1196,12 @@ template {
   text-align: center;
   width: 50%;
   align-self: center;
+}
+
+@media (max-width: 700px) {
+  .contact-form__btn {
+    width: 80%;
+  }
 }
 
 .contact-form__btn:hover {
@@ -1775,4 +1784,12 @@ template {
   to {
     opacity: 1
   }
+}
+
+.loader-center {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

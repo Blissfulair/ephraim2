@@ -21,7 +21,7 @@ const IndexPage = ({ pageContext }) => {
   console.log(pageContext)
 
   return (
-    <Layout>
+    <Layout data={pageContext}>
       <SEO title="The Hon. Ephraim Blog Page" />
       <section className="blog-hon-section">
         <div className="container blog-section">
