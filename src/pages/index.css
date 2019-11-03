@@ -5,15 +5,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 0;
+  top: -100px;
   left: 0;
   background-color: rgba(0, 0, 0, 0.82);
-  z-index: 101;
+  z-index: 103;
   transition: all .2s ease-in-out;
 }
 
 .open-modal {
   height: 100vh;
+  top: 0;
 }
 
 .close-video {
@@ -32,6 +33,7 @@
 
 .display-close-video {
   display: block !important;
+  /* right: 5%; */
 }
 
 .video-player {

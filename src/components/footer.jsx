@@ -19,7 +19,7 @@ const Footer = () => (
 
         <div className="footer-form">
           <p>Get Updates From Hon. Ephraim</p>
-          <form className="footer-form-group" action="POST" data-netlify="true">
+          <form className="footer-form-group">
             <input
               className="footer-form__input"
               type="text"

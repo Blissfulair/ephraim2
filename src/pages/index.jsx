@@ -409,8 +409,6 @@ const IndexPage = ({ data }) => {
                 <h3 className="contact-title">Contact Form</h3>
                 <form
                   className="contact-form__box"
-                  action="POST"
-                  data-netlify="true"
                 >
                   <label htmlFor="name">What's your name?</label>
                   <input type="text" name="name" />
@@ -421,7 +419,7 @@ const IndexPage = ({ data }) => {
                   <label htmlFor="message">Type your message.</label>
                   <input type="text" name="message" />
 
-                  <div data-netlify-recaptcha="true"></div>
+                  {/* <div data-netlify-recaptcha="true"></div> */}
 
                   <input
                     type="submit"
