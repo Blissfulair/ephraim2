@@ -69,7 +69,7 @@ const IndexPage = ({ pageContext }) => {
                       <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
                     </div>
                     <div className="blog-readmore">
-                      <button>Read More</button>
+                      <Link to={`blog/${node.slug}`}>Read More</Link>
                     </div>
                   </div>
                 </div>

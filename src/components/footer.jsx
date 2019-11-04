@@ -19,7 +19,7 @@ const Footer = () => (
 
         <div className="footer-form">
           <p>Get Updates From Hon. Ephraim</p>
-          <form className="footer-form-group">
+          <div className="footer-form-group">
             <input
               className="footer-form__input"
               type="text"
@@ -27,7 +27,7 @@ const Footer = () => (
               name="subscriber_email"
             />
             <input className="footer-form__btn" type="submit" value="Go" />
-          </form>
+          </div>
           <p className="footer-form__designer">
             designed by <span className="bold">GIVITEC LTD</span>
           </p>

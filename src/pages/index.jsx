@@ -407,7 +407,7 @@ const IndexPage = ({ data }) => {
             <div className="container contact-section">
               <div className="contact-form">
                 <h3 className="contact-title">Contact Form</h3>
-                <form
+                <div
                   className="contact-form__box"
                 >
                   <label htmlFor="name">What's your name?</label>
@@ -426,7 +426,7 @@ const IndexPage = ({ data }) => {
                     className="contact-form__btn"
                     value="Send Message"
                   />
-                </form>
+                </div>
               </div>
 
               <div className="contact-content">
