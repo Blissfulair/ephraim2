@@ -66,7 +66,7 @@ const IndexPage = ({ pageContext }) => {
                         />
                       </h1>
                       <h4>Written by {node.author.name}</h4>
-                      <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+                      <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
                     </div>
                     <div className="blog-readmore">
                       <button>Read More</button>

@@ -195,7 +195,7 @@ const IndexPage = ({ data }) => {
             dangerouslySetInnerHTML={{ __html: title }}
           />
           <p className="blog-content__author">written by {name}</p>
-          <p dangerouslySetInnerHTML={{ __html: excerpt }} />
+          <div dangerouslySetInnerHTML={{ __html: excerpt }} />
           <Link to={`/blog/${slug}`} className="blog-content__link">
             Read More
           </Link>
@@ -217,7 +217,7 @@ const IndexPage = ({ data }) => {
           <img src={resolutions.src} alt="" />
           <div className="mySlides__content">
             <h4 dangerouslySetInnerHTML={{ __html: title }} />
-            <p dangerouslySetInnerHTML={{ __html: content }} />
+            <div dangerouslySetInnerHTML={{ __html: content }} />
           </div>
         </div>
       </div>
