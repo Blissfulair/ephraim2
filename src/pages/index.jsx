@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import Loader from 'react-loader-spinner'
 
@@ -7,84 +7,12 @@ import SEO from '../components/seo';
 import './index.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
-let slideIndex = 1;
 
-const minusSlides = () => {
-  showSlides((slideIndex += -1));
-};
-
-const plusSlides = () => {
-  showSlides((slideIndex += 1));
-};
-
-const showSlides = n => {
-  let i;
-  let slides = document.getElementsByClassName('mySlides');
-  if (slides) {
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = 'none';
-    }
-    if (n > slides.length) {
-      slideIndex = 1;
-      return (slides[slideIndex - 1].style.display = 'block');
-    }
-    if (n < 1) {
-      slideIndex = slides.length;
-      return (slides[slideIndex - 1].style.display = 'block');
-    }
-    slides[slideIndex - 1].style.display = 'block';
-  }
-};
-
-const autoShowSlides = () => {
-  let i;
-  let slides = document.getElementsByClassName('mySlides');
-  if (slides.length) {
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = 'none';
-    }
-
-    if (slideIndex > slides.length) {
-      slideIndex = 1;
-    }
-    slides[slideIndex - 1].style.display = 'block';
-    setTimeout(autoShowSlides, 5000); // Change image every 5 seconds
-    slideIndex++;
-  }
-};
-
-let showVideo = false; // Change showViedo to true and src of videoPlayerContent iframe to hon. ephraim's portfolio youtube video
-const videoPlayerContent = showVideo
-  ? `<iframe
-      class="fw-video"
-      src="https://www.youtube.com/embed/t4b72JKvko8?autoplay=1"
-      width="100%"
-      height="100%"
-      frameborder="0"
-      webkitallowfullscreen=""
-      mozallowfullscreen=""
-      allowfullscreen=""
-    ></iframe>`
-  : `<p>Sorry Video Is Not Available At The Moment</p>`;
-
-const openVideoModal = () => {
-  let videoPlayer = document.querySelector('.video-player');
-  let darkModal = document.querySelector('.dark-modal');
-  let closeVideo = document.querySelector('.close-video');
-  videoPlayer.innerHTML = videoPlayerContent;
-  darkModal.classList.add('open-modal');
-  closeVideo.classList.add('display-close-video');
-};
-
-const closeVideoModal = () => {
-  let videoPlayer = document.querySelector('.video-player');
-  let darkModal = document.querySelector('.dark-modal');
-  let closeVideo = document.querySelector('.close-video');
-  showVideo = false;
-  videoPlayer.innerHTML = '';
-  darkModal.classList.remove('open-modal');
-  closeVideo.classList.remove('display-close-video');
-};
+const encode = (data) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
 export const pageQuery = graphql`
   query {
@@ -140,13 +68,125 @@ export const pageQuery = graphql`
   }
 `;
 
-const IndexPage = ({ data }) => {
-  useEffect(() => {
-    const timer = autoShowSlides();
-    return () => clearTimeout(timer);
-  }, []);
+class IndexPage extends Component {
+  state = {
+    slideIndex: 1,
+    timer: true,
+    showVideo: false // Change showViedo to true and src of videoPlayerContent iframe to hon. ephraim's portfolio youtube video
+  };
 
-  const events = data.allWordpressWpEvent.edges
+  componentDidMount() {
+    // this.showSlides(this.state.slideIndex);
+    this.autoShowSlides()
+  }
+  componentWillUnmount() {
+    this.setState({
+      timer: false
+    })
+  }
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...this.state
+      })
+    })
+      .then(() => alert('We appreciate you contacting us. One of our colleagues will get back in touch with you soon!'))
+      .catch(error => alert(error));
+  };
+
+  // Next/previous controls
+  minusSlides = () => {
+    this.showSlides((this.state.slideIndex += -1));
+  };
+
+  plusSlides = () => {
+    this.showSlides((this.state.slideIndex += 1));
+  };
+
+  showSlides = n => {
+    let i;
+    let slides = document.getElementsByClassName('mySlides');
+    if (slides) {
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
+      if (n > slides.length) {
+        this.setState({ slideIndex: 1 });
+        return (slides[0].style.display = 'block');
+      }
+      if (n < 1) {
+        this.setState({ slideIndex: slides.length });
+        return (slides[slides.length - 1].style.display = 'block');
+      }
+      slides[this.state.slideIndex - 1].style.display = 'block';
+    }
+  };
+
+  autoShowSlides = () => {
+    let i;
+    let slides = document.getElementsByClassName('mySlides');
+    if (slides.length) {
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
+
+      if (this.state.slideIndex > slides.length) {
+        this.setState({ slideIndex: 1 });
+      }
+      slides[this.state.slideIndex - 1].style.display = 'block';
+      if (this.state.timer) {
+        setTimeout(this.autoShowSlides, 5000) // Change image every 2 seconds
+      }
+      this.setState({
+        slideIndex: this.state.slideIndex + 1
+      });
+    }
+  };
+
+  openVideoModal = () => {
+    const videoPlayerContent = this.state.showVideo
+    ? `<iframe
+        class="fw-video"
+        src="https://www.youtube.com/embed/t4b72JKvko8?autoplay=1"
+        width="100%"
+        height="100%"
+        frameborder="0"
+        webkitallowfullscreen=""
+        mozallowfullscreen=""
+        allowfullscreen=""
+      ></iframe>`
+    : `<p>Sorry Video Is Not Available At The Moment</p>`;
+
+    let videoPlayer = document.querySelector('.video-player');
+    let darkModal = document.querySelector('.dark-modal');
+    let closeVideo = document.querySelector('.close-video');
+    videoPlayer.innerHTML = videoPlayerContent;
+    darkModal.classList.add('open-modal');
+    closeVideo.classList.add('display-close-video');
+  };
+
+  closeVideoModal = () => {
+    let videoPlayer = document.querySelector('.video-player');
+    let darkModal = document.querySelector('.dark-modal');
+    let closeVideo = document.querySelector('.close-video');
+    videoPlayer.innerHTML = '';
+    darkModal.classList.remove('open-modal');
+    closeVideo.classList.remove('display-close-video');
+  };
+
+  render () {
+
+  const events = this.props.data.allWordpressWpEvent.edges
     .filter((node, index) => {
       return index <= 3;
     })
@@ -181,7 +221,7 @@ const IndexPage = ({ data }) => {
       );
     });
 
-  const posts = data.allWordpressPost.edges
+  const posts = this.props.data.allWordpressPost.edges
     .filter((node, index) => {
       return index <= 2;
     })
@@ -203,9 +243,9 @@ const IndexPage = ({ data }) => {
       );
     });
 
-  const portfolioLenght = data.allWordpressWpPortfolio.edges.length;
+  const portfolioLenght = this.props.data.allWordpressWpPortfolio.edges.length;
 
-  const portfolios = data.allWordpressWpPortfolio.edges.map((e, index) => {
+  const portfolios = this.props.data.allWordpressWpPortfolio.edges.map((e, index) => {
     const { id, title, content, featured_media } = e.node;
     const { resolutions } = featured_media.localFile.childImageSharp;
     return (
@@ -224,8 +264,8 @@ const IndexPage = ({ data }) => {
     );
   });
 
-  const ex = data.allWordpressPost.edges[0].node.excerpt;
-  const port = data.allWordpressWpPortfolio.edges[0].node.content;
+  const ex = this.props.data.allWordpressPost.edges[0].node.excerpt;
+  const port = this.props.data.allWordpressWpPortfolio.edges[0].node.content;
 
   let dom = (
     <div className="loader-center">
@@ -240,11 +280,11 @@ const IndexPage = ({ data }) => {
   )
   if (ex && port) {
       dom = (
-        <Layout data={data}>
+        <Layout data={this.props.data}>
           <SEO title="Home" />
           <div className="dark-modal">
             <i
-              onClick={closeVideoModal}
+              onClick={this.closeVideoModal}
               className="zmdi zmdi-close close-video"
             ></i>
             <div className="video-player"></div>
@@ -362,10 +402,10 @@ const IndexPage = ({ data }) => {
               {/* Full-width images with number and caption text */}
               {portfolios}
               {/* Next and previous buttons */}
-              <a className="prev" onClick={minusSlides}>
+              <a className="prev" onClick={this.minusSlides}>
                 &#10094;
               </a>
-              <a className="next" onClick={plusSlides}>
+              <a className="next" onClick={this.plusSlides}>
                 &#10095;
               </a>
             </div>
@@ -373,7 +413,7 @@ const IndexPage = ({ data }) => {
 
           {/* Video */}
           <section className="container video-section">
-            <div onClick={openVideoModal} className="play-btn">
+            <div onClick={this.openVideoModal} className="play-btn">
               <i className="zmdi zmdi-play video__zmdi"></i>
             </div>
             <h3 className="video-title">Watch Video</h3>
@@ -407,26 +447,35 @@ const IndexPage = ({ data }) => {
             <div className="container contact-section">
               <div className="contact-form">
                 <h3 className="contact-title">Contact Form</h3>
-                <div
+                <form
                   className="contact-form__box"
+                  name="contact"
+                  method="post"
+                  action="/thanks/"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={this.handleSubmit}
                 >
+                  <p hidden>
+                    <label htmlFor="bot-field">Don’t fill this out:{" "}</label>
+                    <input name="bot-field" onChange={this.handleChange} />
+                  </p>
+                
                   <label htmlFor="name">What's your name?</label>
-                  <input type="text" name="name" />
+                  <input type="text" name="name" onChange={this.handleChange} />
 
                   <label htmlFor="email">What's your email address?</label>
-                  <input type="text" name="email" />
+                  <input type="text" name="email" onChange={this.handleChange} />
 
                   <label htmlFor="message">Type your message.</label>
-                  <input type="text" name="message" />
-
-                  {/* <div data-netlify-recaptcha="true"></div> */}
+                  <input type="text" name="message"onChange={this.handleChange} />
 
                   <input
                     type="submit"
                     className="contact-form__btn"
                     value="Send Message"
                   />
-                </div>
+                </form>
               </div>
 
               <div className="contact-content">
@@ -458,6 +507,7 @@ const IndexPage = ({ data }) => {
   return (
     [dom]
   );
+  }
 };
 
 export default IndexPage;

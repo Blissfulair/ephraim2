@@ -41,6 +41,12 @@ const SecondPage = () => (
 
     <section className="container bio-list-section">
       <div className="bio-listing-section">
+        <div className="bio-me-image">
+          <div className="bio-image-joint">
+            <div className="bio-image__blue-square"></div>
+            <div className="bio-image-holder"></div>
+          </div>
+        </div>
         <div className="bio-me-content">
           <h1 className="time-title">Present</h1>
           <div className="line-circe"></div>
@@ -54,12 +60,7 @@ const SecondPage = () => (
           </p>
           <a href="">Read More</a>
         </div>
-        <div className="bio-me-image">
-          <div className="bio-image-joint">
-            <div className="bio-image__blue-square"></div>
-            <div className="bio-image-holder"></div>
-          </div>
-        </div>
+        
       </div>
 
       <div className="bio-listing-section">
@@ -85,6 +86,12 @@ const SecondPage = () => (
       </div>
 
       <div className="bio-listing-section">
+        <div className="bio-me-image">
+          <div className="bio-image-joint">
+            <div className="bio-image__blue-square"></div>
+            <div className="bio-image-holder"></div>
+          </div>
+        </div>
         <div className="bio-me-content">
           <h1 className="time-title">2010</h1>
           <div className="line-circe"></div>
@@ -97,12 +104,6 @@ const SecondPage = () => (
             cillum dolore eu fugiat nulla pariatur.
           </p>
           <a href="">Read More</a>
-        </div>
-        <div className="bio-me-image">
-          <div className="bio-image-joint">
-            <div className="bio-image__blue-square"></div>
-            <div className="bio-image-holder"></div>
-          </div>
         </div>
       </div>
 
@@ -129,6 +130,12 @@ const SecondPage = () => (
       </div>
 
       <div className="bio-listing-section">
+        <div className="bio-me-image">
+          <div className="bio-image-joint">
+            <div className="bio-image__blue-square"></div>
+            <div className="bio-image-holder"></div>
+          </div>
+        </div>
         <div className="bio-me-content">
           <h1 className="time-title">2007</h1>
           <div className="line-circe"></div>
@@ -141,12 +148,6 @@ const SecondPage = () => (
             cillum dolore eu fugiat nulla pariatur.
           </p>
           <a href="">Read More</a>
-        </div>
-        <div className="bio-me-image">
-          <div className="bio-image-joint">
-            <div className="bio-image__blue-square"></div>
-            <div className="bio-image-holder"></div>
-          </div>
         </div>
       </div>
     </section>

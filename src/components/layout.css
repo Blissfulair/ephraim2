@@ -1252,7 +1252,7 @@ template {
 
 @media (max-width: 900px) {
   .contact-content__details {
-    font-size: 1.2em;
+    font-size: 1em;
   }
 }
 
@@ -1584,23 +1584,26 @@ template {
 
 .footer-form-group {
   display: flex;
+  position: relative;
 }
 
 .footer-form__input {
   border-radius: 30px;
-  padding: 5px 20px;
+  padding: 5px 10px;
   background: none;
   border: 1px solid var(--primary-font-color);
   color: var(--primary-font-color);
 }
 
 .footer-form__btn {
-  border-radius: 10px;
+  border-radius: 30px;
   padding: 5px 20px;
   background: var(--orange-color);
-  border: 1px solid var(--orange-color);
+  border: 1px solid var(--primary-font-color);
   color: var(--primary-font-color);
-  margin-left: -65px;
+  /* margin-left: -65px; */
+  position: absolute;
+  right: 0;
   border-bottom-left-radius: 60px;
 }
 

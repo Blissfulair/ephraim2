@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from 'gatsby';
 
 const Footer = () => (
   <footer className="main-footer">
@@ -6,9 +7,9 @@ const Footer = () => (
       <div className="footer-edge"></div>
       <div className="row">
         <div>
-          <a href="index.html">
-            <h3 className="main-header__title">The Hon. Ephraim</h3>
-          </a>
+          
+          <h3 className="main-header__title"><Link to="/">The Hon. Ephraim</Link></h3>
+          
           <div className="footer-social">
             <i className="zmdi zmdi-facebook footer-social__zmdi"></i>
             <i className="zmdi zmdi-twitter footer-social__zmdi"></i>
