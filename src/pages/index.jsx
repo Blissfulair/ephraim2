@@ -100,7 +100,13 @@ class IndexPage extends Component {
         ...this.state
       })
     })
-      .then(() => alert('We appreciate you contacting us. One of our colleagues will get back in touch with you soon!'))
+      .then(() => {
+        const input = document.querySelectorAll('input[name]')
+        input.forEach(i => {
+          i.value = '';
+        });
+        alert('We appreciate you contacting us. One of our colleagues will get back in touch with you soon!')
+      })
       .catch(error => alert(error));
   };
 
