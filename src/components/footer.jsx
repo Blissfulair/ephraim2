@@ -11,10 +11,18 @@ const Footer = () => (
           <h3 className="main-header__title"><Link to="/">The Hon. Ephraim</Link></h3>
           
           <div className="footer-social">
-            <i className="zmdi zmdi-facebook footer-social__zmdi"></i>
-            <i className="zmdi zmdi-twitter footer-social__zmdi"></i>
-            <i className="zmdi zmdi-instagram footer-social__zmdi"></i>
-            <i className="zmdi zmdi-linkedin footer-social__zmdi"></i>
+            <a target="_blank" href="https://web.facebook.com/ephraim.sele" rel="noopener noreferrer">
+              <i className="zmdi zmdi-facebook footer-social__zmdi"></i>
+            </a>
+            <a target="_blank" href="https://twitter.com/hoiphrontistai" rel="noopener noreferrer">
+              <i className="zmdi zmdi-twitter footer-social__zmdi"></i>
+            </a>
+            <a target="_blank" href="https://instagram.com/ephraimaluebhosele_edha" rel="noopener noreferrer">
+              <i className="zmdi zmdi-instagram footer-social__zmdi"></i>
+            </a>
+            <a target="_blank" href="https://linkedin.com/in/ephraim-aluebhosele-b4a99310a" rel="noopener noreferrer">
+              <i className="zmdi zmdi-linkedin footer-social__zmdi"></i>
+            </a>
           </div>
         </div>
 

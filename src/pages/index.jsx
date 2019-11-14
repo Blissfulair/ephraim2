@@ -308,10 +308,18 @@ class IndexPage extends Component {
                     Aluebhosele
                   </h3>
                   <div className="bio-social">
-                    <i className="zmdi zmdi-facebook bio-social__zmdi"></i>
-                    <i className="zmdi zmdi-twitter bio-social__zmdi"></i>
-                    <i className="zmdi zmdi-instagram bio-social__zmdi"></i>
-                    <i className="zmdi zmdi-linkedin bio-social__zmdi"></i>
+                    <a target="_blank" href="https://web.facebook.com/ephraim.sele" rel="noopener noreferrer">
+                      <i className="zmdi zmdi-facebook bio-social__zmdi"></i>
+                    </a>
+                    <a target="_blank" href="https://twitter.com/hoiphrontistai" rel="noopener noreferrer">
+                      <i className="zmdi zmdi-twitter bio-social__zmdi"></i>
+                    </a>
+                    <a target="_blank" href="https://instagram.com/ephraimaluebhosele_edha" rel="noopener noreferrer">
+                      <i className="zmdi zmdi-instagram bio-social__zmdi"></i>
+                    </a>
+                    <a target="_blank" href="https://linkedin.com/in/ephraim-aluebhosele-b4a99310a" rel="noopener noreferrer">
+                      <i className="zmdi zmdi-linkedin bio-social__zmdi"></i>
+                    </a>
                   </div>
                 </div>
 

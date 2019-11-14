@@ -862,6 +862,10 @@ template {
   display: flex;
 }
 
+.bio-social a {
+  text-decoration: none;
+}
+
 /* zmdi icon */
 .bio-social__zmdi {
   color: var(--primary-font-color);
@@ -1545,6 +1549,10 @@ template {
 .footer-social {
   margin: 20px 0 20px 0;
   display: flex;
+}
+
+.footer-social a {
+  text-decoration: none;
 }
 
 /* zmdi icon */
