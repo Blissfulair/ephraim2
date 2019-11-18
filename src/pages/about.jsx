@@ -18,19 +18,26 @@ const SecondPage = () => (
         <div className="about-me-content">
           <h1 className="bio-title">My Biography</h1>
           <div className="title-line"></div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-            <br />
-            <br />
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui official deserunt mollit
-            anim id est labo um
-          </p>
-          <a href="">Read More</a>
+          1994 - City Newspaper. Junior Reporter.
+          Reporting  to the Editorial room, updating no day to dal local news
+          <br/>
+          <br/>
+          1993- 1994 - Nigeria Airways: Information Officer
+          From graduation and as part of the mandatory National Youth Service programme was an information officer attached to information desk at Murtala Muhammed International Lagos Nigeria
+          <br/>
+          <br/>
+          <h3> Education </h3>
+          2009- 2012 Liverpool John Moore University, Liverpool, UK
+          Master degree in Business Administration. (MBA 3312)
+          MBA Dissertation: An investigation Into Employee Motivation in the Ambrose Alli University, Ekpoma, Edo State, Nigeria
+          <br/>
+          <br/>
+          1989 -1992: University of lbadan, Nigeria Bachelor of Arts (flans), in Classical Studies 1992.
+          <br/>
+          <br/>
+          1988: Higher School Certificate in Education.
+          <br/>
+          <br/>
         </div>
 
         <div className="about-me-image">
