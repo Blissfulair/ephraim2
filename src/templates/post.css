@@ -76,7 +76,8 @@
 }
 
 .blog-single-details img {
-  width: 80%;
+  width: 100%;
+  height:auto;
   border: none;
   display: flex;
   margin: 40px auto;
