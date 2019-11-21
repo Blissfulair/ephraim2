@@ -34,7 +34,6 @@ class PostTemplate extends Component {
             </div>
 
             <div class="blog-single-details">
-              <div dangerouslySetInnerHTML={{ __html: currentPost.excerpt }} />
               {resolutions ? (
                 <img src={resolutions.src} alt="" />
               ) : (
