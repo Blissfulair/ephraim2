@@ -6,6 +6,12 @@ import SEO from "../components/seo"
 import "./about.css"
 
 const history = require("../assets/img/history.png")
+const img1 = require("../assets/img/HonEph.png");
+const img2 = require("../assets/img/john-moore-university.png");
+const img3 = require("../assets/img/newspapers-cover.jpg");
+const img4 = require("../assets/img/Murtala-Muhammed-International-Airport-Lagos.jpg");
+const img5 = require("../assets/img/university-ibadan.png");
+const img6 = require("../assets/img/WAEC.jpg");
 
 const SecondPage = () => (
   <Layout data='about'>
@@ -18,26 +24,18 @@ const SecondPage = () => (
         <div className="about-me-content">
           <h1 className="bio-title">My Biography</h1>
           <div className="title-line"></div>
-          1994 - City Newspaper. Junior Reporter.
-          Reporting  to the Editorial room, updating no day to dal local news
+          In 1988 Ephraim Aluebhosele completed his Higher School Certificate in Education.
+          <br/>
+          Then in 1989 -1992 he Graduated from the University of lbadan, Nigeria Bachelor of Arts (flans), 
+          in Classical Studies 1992.
           <br/>
           <br/>
-          1993- 1994 - Nigeria Airways: Information Officer
-          From graduation and as part of the mandatory National Youth Service programme was an information officer attached to information desk at Murtala Muhammed International Lagos Nigeria
+          In 2009 - 2012 he futher completed his
+          Master degree in Business Administration in Liverpool John Moore University, UK.
           <br/>
           <br/>
-          <h3> Education </h3>
-          2009- 2012 Liverpool John Moore University, Liverpool, UK
-          Master degree in Business Administration. (MBA 3312)
-          MBA Dissertation: An investigation Into Employee Motivation in the Ambrose Alli University, Ekpoma, Edo State, Nigeria
-          <br/>
-          <br/>
-          1989 -1992: University of lbadan, Nigeria Bachelor of Arts (flans), in Classical Studies 1992.
-          <br/>
-          <br/>
-          1988: Higher School Certificate in Education.
-          <br/>
-          <br/>
+          He was futher made an Honourable Member of the Edo State House of Assembly in the year 2019, 
+          and represents Igueben constituency.
         </div>
 
         <div className="about-me-image">
@@ -49,112 +47,98 @@ const SecondPage = () => (
     <section className="container bio-list-section">
       <div className="bio-listing-section">
         <div className="bio-me-image">
-          <div className="bio-image-joint">
-            <div className="bio-image__blue-square"></div>
-            <div className="bio-image-holder"></div>
+          <div className="bio-image__blue-square">
+            <img className="bio-image-holder" src={img1} />
           </div>
         </div>
         <div className="bio-me-content">
           <h1 className="time-title">Present</h1>
           <div className="line-circe"></div>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et doloreea commodo consequat.
-            <br />
-            <br />
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur.
+            Honourable Member of the Edo State House of Assembly.
           </p>
-          <a href="">Read More</a>
         </div>
         
       </div>
 
       <div className="bio-listing-section">
         <div className="bio-me-image">
-          <div className="bio-image-joint">
-            <div className="bio-image__blue-square"></div>
-            <div className="bio-image-holder"></div>
+          <div className="bio-image__blue-square">
+            <img className="bio-image-holder" src={img2} />
           </div>
         </div>
         <div className="bio-me-content">
-          <h1 className="time-title">2013</h1>
+          <h1 className="time-title">2012-2009</h1>
           <div className="line-circe"></div>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et doloreea commodo consequat.
-            <br />
-            <br />
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur.
+            Liverpool John Moore University, Liverpool, UK
+            Master degree in Business Administration. (MBA 3312)
+            MBA Dissertation: An investigation Into Employee Motivation 
+            in the Ambrose Alli University, Ekpoma, Edo State, Nigeria
           </p>
-          <a href="">Read More</a>
         </div>
       </div>
 
       <div className="bio-listing-section">
         <div className="bio-me-image">
-          <div className="bio-image-joint">
-            <div className="bio-image__blue-square"></div>
-            <div className="bio-image-holder"></div>
+          <div className="bio-image__blue-square">
+            <img className="bio-image-holder" src={img3} />
           </div>
         </div>
         <div className="bio-me-content">
-          <h1 className="time-title">2010</h1>
+          <h1 className="time-title">1994</h1>
           <div className="line-circe"></div>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et doloreea commodo consequat.
-            <br />
-            <br />
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur.
+            City Newspaper. Junior Reporter.
+            Reporting  to the Editorial room, updating no day to dal local news
           </p>
-          <a href="">Read More</a>
         </div>
       </div>
 
       <div className="bio-listing-section">
         <div className="bio-me-image">
-          <div className="bio-image-joint">
-            <div className="bio-image__blue-square"></div>
-            <div className="bio-image-holder"></div>
+          <div className="bio-image__blue-square">
+            <img className="bio-image-holder" src={img4} />
           </div>
         </div>
         <div className="bio-me-content">
-          <h1 className="time-title">2008</h1>
+          <h1 className="time-title">1994-1993</h1>
           <div className="line-circe"></div>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et doloreea commodo consequat.
-            <br />
-            <br />
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur.
+            Nigeria Airways: Information Officer From graduation and as part of the mandatory 
+            National Youth Service programme was an information officer attached to information 
+            desk at Murtala Muhammed International Lagos Nigeria
           </p>
-          <a href="">Read More</a>
         </div>
       </div>
 
       <div className="bio-listing-section">
         <div className="bio-me-image">
-          <div className="bio-image-joint">
-            <div className="bio-image__blue-square"></div>
-            <div className="bio-image-holder"></div>
+          <div className="bio-image__blue-square">
+            <img className="bio-image-holder" src={img5} />
           </div>
         </div>
         <div className="bio-me-content">
-          <h1 className="time-title">2007</h1>
+          <h1 className="time-title">1992-1989</h1>
           <div className="line-circe"></div>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et doloreea commodo consequat.
-            <br />
-            <br />
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur.
+            University of lbadan, Nigeria Bachelor of Arts (flans), in Classical Studies 1992.
           </p>
-          <a href="">Read More</a>
+        </div>
+      </div>
+
+      <div className="bio-listing-section">
+        <div className="bio-me-image">
+          <div className="bio-image__blue-square">
+            <img className="bio-image-holder" src={img6} />
+          </div>
+        </div>
+        <div className="bio-me-content">
+          <h1 className="time-title">1988</h1>
+          <div className="line-circe"></div>
+          <p>
+            Higher School Certificate in Education.
+          </p>
         </div>
       </div>
     </section>
