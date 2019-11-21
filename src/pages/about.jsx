@@ -74,7 +74,7 @@ const SecondPage = () => (
             Liverpool John Moore University, Liverpool, UK
             Master degree in Business Administration. (MBA 3312)
             MBA Dissertation: An investigation Into Employee Motivation 
-            in the Ambrose Alli University, Ekpoma, Edo State, Nigeria
+            in the Ambrose Alli University, Ekpoma, Edo State, Nigeria.
           </p>
         </div>
       </div>
@@ -90,7 +90,7 @@ const SecondPage = () => (
           <div className="line-circe"></div>
           <p>
             City Newspaper. Junior Reporter.
-            Reporting  to the Editorial room, updating no day to dal local news
+            Reporting  to the Editorial room, updating no day to dal local news.
           </p>
         </div>
       </div>
@@ -107,7 +107,7 @@ const SecondPage = () => (
           <p>
             Nigeria Airways: Information Officer From graduation and as part of the mandatory 
             National Youth Service programme was an information officer attached to information 
-            desk at Murtala Muhammed International Lagos Nigeria
+            desk at Murtala Muhammed International Lagos Nigeria.
           </p>
         </div>
       </div>
