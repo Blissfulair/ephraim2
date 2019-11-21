@@ -63,7 +63,7 @@ const SecondPage = () => (
             <br />
             <br />
             Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur.
+            cillum dolore eu fugia
           </p>
           <a href="">Read More</a>
         </div>
