@@ -5,7 +5,7 @@ import Loader from 'react-loader-spinner'
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import './index.css';
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 
 
 const encode = (data) => {
