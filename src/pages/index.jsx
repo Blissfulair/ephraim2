@@ -72,7 +72,7 @@ class IndexPage extends Component {
   state = {
     slideIndex: 1,
     timer: true,
-    showVideo: false // Change showViedo to true and src of videoPlayerContent iframe to hon. ephraim's portfolio youtube video
+    showVideo: true // Change showViedo to true and src of videoPlayerContent iframe to hon. ephraim's portfolio youtube video
   };
 
   componentDidMount() {
