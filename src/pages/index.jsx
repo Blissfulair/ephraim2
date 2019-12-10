@@ -161,13 +161,7 @@ class IndexPage extends Component {
 
   openVideoModal = () => {
     const videoPlayerContent = this.state.showVideo
-    ? `<iframe 
-        width="560" 
-        height="315" 
-        src="https://www.youtube.com/embed/DCLCj9i7_jA" 
-        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; 
-        picture-in-picture" allowfullscreen>
-      </iframe>`
+    ? ``
     : `<p>Sorry Video Is Not Available At The Moment</p>`;
 
     let videoPlayer = document.querySelector('.video-player');
